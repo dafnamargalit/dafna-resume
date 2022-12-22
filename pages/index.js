@@ -1,115 +1,50 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css';
+import React, { useMemo, Suspense } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { useTexture } from '@react-three/drei';
+import styled from 'styled-components';
+import Floor from '/components/Three/Floor';
+import Box from '/components/Three/Box';
+import LightBulb from '/components/Three/LightBulb';
+import OrbitControls from '/components/Three/OrbitControls';
+import Draggable from '/components/Three/Draggable';
+import Stars from '/components/Three/Stars';
 
 export default function Home() {
+
   return (
-    <div className={styles.container}>
+    <Suspense fallback={<div>Loading...</div>}>
+    <Container>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Dafna Margalit</title>
       </Head>
-
-      <main>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel" className={styles.logo} />
-        </a>
-      </footer>
-
-      <style jsx>{`
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-        footer img {
-          margin-left: 0.5rem;
-        }
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          text-decoration: none;
-          color: inherit;
-        }
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-      `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
-    </div>
+      <StyledCanvas
+       shadows={true}
+       camera={{
+        fov: 75,
+        aspect: 2,
+        near: 1.5,
+        far: 5,
+        position: [0, 0, 2],
+        }}>
+          <directionalLight color={'white'} intensity={1} />
+          <Stars />
+          <Stars count={350} size={0.075} map={'https://raw.githubusercontent.com/Kuntal-Das/textures/main/sp2.png'}/>
+          <OrbitControls />
+      </StyledCanvas>
+    </Container>
+    </Suspense>
   )
 }
+
+const Container = styled.div`
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100vh;
+  width: 100vw;
+`;
+
+const StyledCanvas = styled(Canvas)`
+  background: linear-gradient(to right, #030b25 0%, #081645 100%);
+`;
