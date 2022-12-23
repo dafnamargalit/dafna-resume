@@ -7,6 +7,8 @@ import Stars from '/components/Three/Stars';
 import { projects } from '/data/projects.js';
 import ProjectIcon from '/components/ProjectIcon';
 import Link from 'next/link';
+import Image from 'next/image';
+import Fullname from '/images/fullname.png';
 
 const ROW_COUNT = 2;
 
@@ -38,6 +40,7 @@ export default function Home() {
           <OrbitControls />
       </StyledCanvas>
       <Content>
+          <DafnaLogo src={Fullname}/>
           <WrapIcons>
             {projects.map((project, index) => 
             <Link href={project?.link}>
@@ -70,6 +73,7 @@ const StyledCanvas = styled(Canvas)`
 
 const Content = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   color: white;
@@ -78,6 +82,11 @@ const Content = styled.div`
   transform: translate(-50%, -50%);
   position: absolute;
   z-index: 9999;
+`;
+
+const DafnaLogo = styled(Image)`
+  height: 100px;
+  width: auto;
 `;
 
 const WrapIcons = styled.div`
