@@ -8,7 +8,8 @@ import { projects } from '/data/projects.js';
 import ProjectIcon from '/components/ProjectIcon';
 import Link from 'next/link';
 import Image from 'next/image';
-import Fullname from '/images/fullname.png';
+import firstname from '/images/firstname.png';
+import lastname from '/images/lastname.png';
 
 const ROW_COUNT = 2;
 
@@ -40,7 +41,11 @@ export default function Home() {
           <OrbitControls />
       </StyledCanvas>
       <Content>
-          <DafnaLogo src={Fullname}/>
+        <WrapLogo>
+          <DafnaLogo src={firstname}/>
+          <DafnaLogo src={lastname}/>
+        </WrapLogo>
+        <ClickOnProject>Click On An Icon!</ClickOnProject>
           <WrapIcons>
             {projects.map((project, index) => 
             <Link href={project?.link}>
@@ -48,6 +53,7 @@ export default function Home() {
             </Link>
             )}
           </WrapIcons>
+          <ViewSourceCode href="https://github.com/dafnamargalit/dafna-resume">{"View Source Code ->"}</ViewSourceCode>
       </Content>
       </Container>
     </Suspense>
@@ -84,6 +90,13 @@ const Content = styled.div`
   z-index: 9999;
 `;
 
+const WrapLogo = styled.div`
+  display: flex;
+  flex-direction: row;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
 const DafnaLogo = styled(Image)`
   height: 10vw;
   width: auto;
@@ -103,4 +116,28 @@ const WrapIcons = styled.div`
   @media (max-width: 768px) {
     gap: 30px;
   }
+`;
+
+const ClickOnProject = styled.div`
+   color: #ffaacf;
+  text-shadow:  0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  font-weight: 800;
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-top: 5vh;
+`;
+
+const ViewSourceCode = styled(Link)`
+  color: #ffaacf;
+  text-shadow:  0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  font-weight: 800;
+    font-family: 'Courier New', Courier, monospace;
+    transition: transform .2s;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-top: 5vh;
+    &:hover{
+      transform: scale(1.1);
+    }
 `;
