@@ -1,23 +1,28 @@
-import Head from 'next/head'
-import React, { useMemo, Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { useTexture } from '@react-three/drei';
+import Head from 'next/head';
+import React, { Suspense, useState } from 'react';
 import styled from 'styled-components';
-import Floor from '/components/Three/Floor';
-import Box from '/components/Three/Box';
-import LightBulb from '/components/Three/LightBulb';
 import OrbitControls from '/components/Three/OrbitControls';
-import Draggable from '/components/Three/Draggable';
 import Stars from '/components/Three/Stars';
+import { projects } from '/data/projects.js';
+import ProjectIcon from '/components/ProjectIcon';
+import Link from 'next/link';
+
+const ROW_COUNT = 2;
+
+const columnCountToWidth = (columnCount) =>
+    2500 * columnCount + 16 * (columnCount + 1);
 
 export default function Home() {
 
+  const [selectedProject, setSelectedProject] = useState(null);
+
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-    <Container>
+    <Suspense fallback={<Container>Loading...</Container>}>
       <Head>
-        <title>Dafna Margalit</title>
+        <title>Dafna</title>
       </Head>
+      <Container>
       <StyledCanvas
        shadows={true}
        camera={{
@@ -32,7 +37,16 @@ export default function Home() {
           <Stars count={350} size={0.075} map={'https://raw.githubusercontent.com/Kuntal-Das/textures/main/sp2.png'}/>
           <OrbitControls />
       </StyledCanvas>
-    </Container>
+      <Content>
+          <WrapIcons>
+            {projects.map((project, index) => 
+            <Link href={project?.link}>
+              <ProjectIcon {...project} key={index} onClick={() => setSelectedProject(project)}/>
+            </Link>
+            )}
+          </WrapIcons>
+      </Content>
+      </Container>
     </Suspense>
   )
 }
@@ -40,11 +54,44 @@ export default function Home() {
 const Container = styled.div`
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   height: 100vh;
   width: 100vw;
+  
 `;
 
 const StyledCanvas = styled(Canvas)`
   background: linear-gradient(to right, #030b25 0%, #081645 100%);
+  height: 100vh;
+  width: 100vw;
+  display: block;
+  position: relative;
+  z-index: -9999;
+`;
+
+const Content = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  z-index: 9999;
+`;
+
+const WrapIcons = styled.div`
+  display: flex;    
+  flex-wrap: wrap;
+  gap: 50px;
+  padding: 32px 16px 16px 16px;
+  margin: auto;
+  flex-basis: 100%;
+  width: 70vw;
+  max-width: 1000px;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    gap: 30px;
+  }
 `;
