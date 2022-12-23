@@ -32,7 +32,7 @@ export const projects = [
     // },
     {
       name: 'I LOVE YOU the game',
-      link: 'https://github.com/dafnamargalit/ily-the-game',
+      link: 'https://github.com/dafnamargalit/ily_the_game',
        src: ily
     },
 ];
