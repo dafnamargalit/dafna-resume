@@ -1,23 +1,16 @@
 import styled from 'styled-components';
-import Link from 'next/link';
+import Image from 'next/image';
 
 export default function ProjectIcon(props) {
     return (
-        <Container>
-            {props.name}
-        </Container>
+        <Container src={props.src}/>
     );
 } 
 
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 200px;
+const Container = styled(Image)`
   height: 200px;
-  background: white;
-  border-radius: 50%;
-  text-decoration: none;
+  width: auto;
+  filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.3));
    @media (hover: hover) {
     :hover {
       transform: scale(1.1);
@@ -26,7 +19,7 @@ const Container = styled.div`
     }
     
   }
-  :not( :hover ){ transition: all 0.2s ease-in-out; }
+  :not( :hover ){ transition: all 0.2s ease-in-out;     cursor: pointer;}
   :active {
     transform: scale(1.1);
     transition: all 0.2s ease-in-out;

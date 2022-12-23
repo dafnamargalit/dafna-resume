@@ -85,7 +85,7 @@ const Content = styled.div`
 `;
 
 const DafnaLogo = styled(Image)`
-  height: 100px;
+  height: 10vw;
   width: auto;
 `;
 
@@ -97,7 +97,7 @@ const WrapIcons = styled.div`
   margin: auto;
   flex-basis: 100%;
   width: 70vw;
-  max-width: 1000px;
+  max-width: 900px;
   justify-content: center;
 
   @media (max-width: 768px) {
