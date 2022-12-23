@@ -11,11 +11,6 @@ import Image from 'next/image';
 import firstname from '/images/firstname.png';
 import lastname from '/images/lastname.png';
 
-const ROW_COUNT = 2;
-
-const columnCountToWidth = (columnCount) =>
-    2500 * columnCount + 16 * (columnCount + 1);
-
 export default function Home() {
 
   const [selectedProject, setSelectedProject] = useState(null);
@@ -24,6 +19,7 @@ export default function Home() {
     <Suspense fallback={<Container>Loading...</Container>}>
       <Head>
         <title>Dafna</title>
+        <meta name="description" content="Dafna Margalit's Portfolio" />
       </Head>
       <Container>
       <StyledCanvas
