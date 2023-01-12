@@ -12,7 +12,7 @@ export const projects = [
     },
     {
       name: 'Dafna',
-      link: 'https://github.com/dafnamargalit/dafna-site',
+      link: 'https://github.com/dafnamargalit/dafna-site-updated',
        src: site
     },
     {
