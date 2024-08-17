@@ -3,6 +3,7 @@ import site from '/images/site.png';
 import guitarduino from '/images/guitarduino.png';
 import drumkit from '/images/drumkit.png';
 import ily from '/images/ily.png';
+import mickeydarling from '/images/mickeydarling.png';
 
 export const projects = [
     {
@@ -25,14 +26,14 @@ export const projects = [
       link: 'https://github.com/dafnamargalit/Mini-Electronic-Drum-Set',
        src: drumkit
     },
-    // {
-    //   name: 'Mission Zero PWA',
-    //   link: 'https://github.com/dafnamargalit/mission-zero-pwa',
-    //    src: EVEE
-    // },
     {
       name: 'I LOVE YOU the game',
       link: 'https://github.com/dafnamargalit/ily_the_game',
        src: ily
     },
+    {
+      name: 'Mickey Darling Site',
+      link: 'https://github.com/dafnamargalit/mickeydarling',
+      src: mickeydarling
+    }
 ];
