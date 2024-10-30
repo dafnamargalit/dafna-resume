@@ -10,7 +10,7 @@ export const projects = [
     {
       name: 'Dafna',
       link: 'https://dafna.rocks',
-       src: site
+      src: site
     },
     {
       name: 'Mickey Darling Site',
@@ -18,7 +18,7 @@ export const projects = [
       src: mickeydarling
     },
     {
-      name: 'Madeline The Person Site'
+      name: 'Madeline The Person Site',
       link: 'https://madelinetheperson.com',
       src: madeline
     },
