@@ -23,19 +23,14 @@ export const projects = [
       src: madeline
     },
     {
-      name: 'Guitarduino Tuner',
-      link: 'https://github.com/dafnamargalit/Guitarduino-Tuner',
-       src: guitarduino
+      name: 'I LOVE YOU the game',
+      link: 'https://dafna.rocks/games',
+       src: ily
     },
     {
       name: 'Mini Electronic Drum Set',
       link: 'https://github.com/dafnamargalit/Mini-Electronic-Drum-Set',
        src: drumkit
-    },
-    {
-      name: 'I LOVE YOU the game',
-      link: 'https://dafna.rocks/games',
-       src: ily
     },
     {
       name: 'EVEE',
