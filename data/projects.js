@@ -4,17 +4,23 @@ import guitarduino from '/images/guitarduino.png';
 import drumkit from '/images/drumkit.png';
 import ily from '/images/ily.png';
 import mickeydarling from '/images/mickeydarling.png';
+import madeline from '/images/madelineflower.png';
 
 export const projects = [
     {
-      name: 'EVEE',
-      link: 'https://github.com/EVEE-Capstone',
-      src: EVEE
+      name: 'Dafna',
+      link: 'https://dafna.rocks',
+       src: site
     },
     {
-      name: 'Dafna',
-      link: 'https://github.com/dafnamargalit/dafna-site-updated',
-       src: site
+      name: 'Mickey Darling Site',
+      link: 'https://sexiestboyband.com',
+      src: mickeydarling
+    },
+    {
+      name: 'Madeline The Person Site'
+      link: 'https://madelinetheperson.com',
+      src: madeline
     },
     {
       name: 'Guitarduino Tuner',
@@ -28,12 +34,12 @@ export const projects = [
     },
     {
       name: 'I LOVE YOU the game',
-      link: 'https://github.com/dafnamargalit/ily_the_game',
+      link: 'https://dafna.rocks/games',
        src: ily
     },
     {
-      name: 'Mickey Darling Site',
-      link: 'https://github.com/dafnamargalit/mickeydarling',
-      src: mickeydarling
-    }
+      name: 'EVEE',
+      link: 'https://github.com/EVEE-Capstone',
+      src: EVEE
+    },
 ];

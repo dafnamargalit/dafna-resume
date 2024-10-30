@@ -20,6 +20,7 @@ export default function Home() {
       <Head>
         <title>Dafna</title>
         <meta name="description" content="Dafna Margalit's Portfolio" />
+        <link rel="icon" href="/D-square.png" />
       </Head>
       <Container>
       <StyledCanvas
