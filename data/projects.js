@@ -9,7 +9,7 @@ import madeline from '/images/madelineflower.png';
 export const projects = [
     {
       name: 'Dafna',
-      link: 'https://dafna.rocks',
+      link: 'https://dafna.music',
       src: site
     },
     {
